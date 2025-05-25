@@ -276,8 +276,8 @@ int main(int argc, char **argv)
     rosbag::View view(bag); 
 
     for (const rosbag::MessageInstance& m : view) {
-        if (m.getTopic() == "/full_cloud_projected") {
-            ROS_INFO("Received message on topic: /full_cloud_projected");
+        if (m.getTopic() == "/registered_cloud") {
+            ROS_INFO("Received message on topic: /registered_cloud");
 
             sensor_msgs::PointCloud2::ConstPtr cloud_msg = m.instantiate<sensor_msgs::PointCloud2>();
 
