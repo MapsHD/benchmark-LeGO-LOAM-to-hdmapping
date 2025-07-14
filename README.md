@@ -43,8 +43,9 @@ cd /test_ws/
 source ./devel/setup.sh # adjust to used shell
 rosrun lego-loam-to-hdmapping listener <recorded_bag> <output_dir>
 ```
+## Modified for build
 
-*Reference issue:**  
+**(Reference issue:**  
 [RobustFieldAutonomyLab/LeGO-LOAM#257](https://github.com/RobustFieldAutonomyLab/LeGO-LOAM/issues/257)
 [catkin build fails -278](https://github.com/RobustFieldAutonomyLab/LeGO-LOAM/issues/278)
 ####  File:
