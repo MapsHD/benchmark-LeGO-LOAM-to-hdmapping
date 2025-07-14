@@ -84,6 +84,8 @@ test_ws/src/LeGO-LOAM-to-hdmapping/src/LeGO-LOAM/LeGO-LOAM/include/utility.h
 
 Changes made:
 
+#include <opencv/cv.h> to #include <opencv2/opencv.hpp>
+
     Added  Eigen includes
 
 #include <eigen3/Eigen/Core>
