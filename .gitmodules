@@ -1,8 +1,8 @@
 [submodule "src/LeGO-LOAM"]
 	path = src/LeGO-LOAM
 	url = https://github.com/RobustFieldAutonomyLab/LeGO-LOAM.git
-[submodule "src/cpp_pubsub/src/3rdparty/LASzip"]
-	path = src/cpp_pubsub/src/3rdparty/LASzip
+[submodule "src/lego-loam-to-hdmapping/src/3rdparty/LASzip"]
+	path = src/lego-loam-to-hdmapping/src/3rdparty/LASzip
 	url = https://github.com/LASzip/LASzip.git
 [submodule "src/livox_ros_driver"]
 	path = src/livox_ros_driver
