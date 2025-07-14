@@ -45,24 +45,22 @@ rosrun lego-loam-to-hdmapping listener <recorded_bag> <output_dir>
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-# LeGO-LOAM-to-hdmapping
-
+# Modified for build
+test_ws/src/LeGO-LOAM-to-hdmapping/src/LeGO-LOAM/LeGO-LOAM/CMakeLists.txt
 https://github.com/RobustFieldAutonomyLab/LeGO-LOAM/issues/257
+"Fixed this by adding the following lines:
 find_package(Boost REQUIRED COMPONENTS serialization thread timer chrono)
-${Boost_LIBRARY_DIRS} 
+in link_directories add ${Boost_LIBRARY_DIRS}
+in target_link_libraries(mapOptimization ${catkin_LIBRARIES} ... add ${Boost_LIBRARIES}
+"
 
-----------------------------
+and change:
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O3")
+to
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+in test_ws/src/LeGO-LOAM-to-hdmapping/src/LeGO-LOAM/LeGO-LOAM/include/utility.h added:
 #include <eigen3/Eigen/Core>
 #include <eigen3/Eigen/Dense>
 #include <eigen3/Eigen/Geometry>
