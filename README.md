@@ -44,23 +44,41 @@ source ./devel/setup.sh # adjust to used shell
 rosrun lego-loam-to-hdmapping listener <recorded_bag> <output_dir>
 ```
 
+*Reference issue:**  
+[RobustFieldAutonomyLab/LeGO-LOAM#257](https://github.com/RobustFieldAutonomyLab/LeGO-LOAM/issues/257)
+[catkin build fails -278](https://github.com/RobustFieldAutonomyLab/LeGO-LOAM/issues/278)
+####  File:
+`test_ws/src/LeGO-LOAM-to-hdmapping/src/LeGO-LOAM/LeGO-LOAM/CMakeLists.txt`
 
-# Modified for build
-test_ws/src/LeGO-LOAM-to-hdmapping/src/LeGO-LOAM/LeGO-LOAM/CMakeLists.txt
-https://github.com/RobustFieldAutonomyLab/LeGO-LOAM/issues/257
-"Fixed this by adding the following lines:
-find_package(Boost REQUIRED COMPONENTS serialization thread timer chrono)
-in link_directories add ${Boost_LIBRARY_DIRS}
-in target_link_libraries(mapOptimization ${catkin_LIBRARIES} ... add ${Boost_LIBRARIES}
-"
+**Changes made:**
 
-and change:
+   ```cmake
+   find_package(Boost REQUIRED COMPONENTS serialization thread timer chrono)
+
+    Linked Boost libraries properly
+
+link_directories(${Boost_LIBRARY_DIRS})
+target_link_libraries(mapOptimization ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+
+Updated C++ standard
+
+Replaced:
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O3")
-to
-set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-in test_ws/src/LeGO-LOAM-to-hdmapping/src/LeGO-LOAM/LeGO-LOAM/include/utility.h added:
+With:
+
+    set(CMAKE_CXX_STANDARD 14)
+    set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+File:
+
+test_ws/src/LeGO-LOAM-to-hdmapping/src/LeGO-LOAM/LeGO-LOAM/include/utility.h
+
+Changes made:
+
+    Added  Eigen includes
+
 #include <eigen3/Eigen/Core>
 #include <eigen3/Eigen/Dense>
 #include <eigen3/Eigen/Geometry>
