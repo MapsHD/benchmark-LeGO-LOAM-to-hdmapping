@@ -45,17 +45,21 @@ rosrun lego-loam-to-hdmapping listener <recorded_bag> <output_dir>
 ```
 ## Modified for build
 
-**(Reference issue:**  
-[RobustFieldAutonomyLab/LeGO-LOAM#257](https://github.com/RobustFieldAutonomyLab/LeGO-LOAM/issues/257)
+**Reference issue:**  
+
+[RobustFieldAutonomyLab/LeGO-LOAM#257](https://github.com/RobustFieldAutonomyLab/LeGO-LOAM/issues/257)               
 [catkin build fails -278](https://github.com/RobustFieldAutonomyLab/LeGO-LOAM/issues/278)
 
 
 **Changes made:**
- File:
- 
-`test_ws/src/LeGO-LOAM-to-hdmapping/src/LeGO-LOAM/LeGO-LOAM/CMakeLists.txt`
 
-   ```cmake
+ 
+   ```
+  File:
+
+  test_ws/src/LeGO-LOAM-to-hdmapping/src/LeGO-LOAM/LeGO-LOAM/CMakeLists.txt
+
+   cmake
    find_package(Boost REQUIRED COMPONENTS serialization thread timer chrono)
 
     Linked Boost libraries properly
