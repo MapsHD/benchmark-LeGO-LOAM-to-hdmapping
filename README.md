@@ -48,10 +48,12 @@ rosrun lego-loam-to-hdmapping listener <recorded_bag> <output_dir>
 **(Reference issue:**  
 [RobustFieldAutonomyLab/LeGO-LOAM#257](https://github.com/RobustFieldAutonomyLab/LeGO-LOAM/issues/257)
 [catkin build fails -278](https://github.com/RobustFieldAutonomyLab/LeGO-LOAM/issues/278)
-####  File:
-`test_ws/src/LeGO-LOAM-to-hdmapping/src/LeGO-LOAM/LeGO-LOAM/CMakeLists.txt`
+
 
 **Changes made:**
+ File:
+ 
+`test_ws/src/LeGO-LOAM-to-hdmapping/src/LeGO-LOAM/LeGO-LOAM/CMakeLists.txt`
 
    ```cmake
    find_package(Boost REQUIRED COMPONENTS serialization thread timer chrono)
