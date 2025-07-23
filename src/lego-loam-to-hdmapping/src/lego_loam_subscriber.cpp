@@ -244,7 +244,7 @@ int main(int argc, char **argv)
     {
         chunk.push_back(points_global[i]);
 
-        if (chunk.size() > 2000000)
+        if (chunk.size() > 200000)
         {
             counter++;
             chunks_pc.push_back(chunk);
@@ -256,7 +256,7 @@ int main(int argc, char **argv)
     // remaining pc
     std::cout << "reamaining points: " << chunk.size() << std::endl;
 
-    if (chunk.size() > 1000000)
+    if (chunk.size() > 100000)
     {
         chunks_pc.push_back(chunk);
     }
