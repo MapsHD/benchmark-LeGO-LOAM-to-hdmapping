@@ -98,3 +98,37 @@ source ./devel/setup.sh # adjust to used shell
 rosrun lego-loam-to-hdmapping listener <recorded_bag> <output_dir>
 ```
 
+## Example:
+
+Download the dataset from [HELiPR](https://sites.google.com/view/heliprdataset/download)  
+Then, download **Roundabout2**.
+
+## Record the bag file:
+
+```shell
+rosbag record /registered_cloud /aft_mapped_to_init -O {your_directory_for_the_recorded_bag}
+```
+
+## LeGO LOAM Launch:
+
+```shell
+cd /test_ws/
+source ./install/setup.sh # adjust to used shell
+roslaunch lego_loam run.launch
+```
+
+## During the record (if you want to stop recording earlier) / after finishing the bag:
+
+```shell
+In the terminal where the ros record is, interrupt the recording by CTRL+C
+Do it also in ros launch terminal by CTRL+C.
+```
+
+## Usage - Conversion (ROS bag to HDMapping, after recording stops):
+
+```shell
+cd /test_ws/
+source ./install/setup.sh # adjust to used shell
+rosrun lego-loam-to-hdmapping listener <recorded_bag> <output_dir>
+```
+
