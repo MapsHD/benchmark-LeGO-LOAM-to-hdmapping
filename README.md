@@ -7,42 +7,12 @@ This repository contains ROS 1 workspace that :
   - submodule to tested revision of LeGO-LOAM
   - a converter that listens to topics advertised from odometry node and save data in format compatible with HDMapping.
 
-
-## Building
-
-Clone the repo
-```shell
-mkdir -p /test_ws/src
-cd /test_ws/src
-git clone https://github.com/marcinmatecki/LeGO-LOAM-to-hdmapping.git --recursive
-cd ..
-catkin_make
-```
-
-## Usage - data SLAM:
-
-Prepare recorded bag with estimated odometry:
-
-In first terminal record bag:
-```shell
-rosbag record /registered_cloud /aft_mapped_to_init
-```
-
-and start odometry:
-```shell 
-cd /test_ws/
-source ./devel/setup.sh # adjust to used shell
-roslaunch lego_loam run.launch
-rosbag play *.bag --clock --topic /velodyne_points /imu/data
-```
-
-## Usage - conversion:
+## Dependencies
 
 ```shell
-cd /test_ws/
-source ./devel/setup.sh # adjust to used shell
-rosrun lego-loam-to-hdmapping listener <recorded_bag> <output_dir>
+sudo apt install -y nlohmann-json3-dev
 ```
+
 ## Modified for build
 
 **Reference issue:**  
@@ -91,3 +61,40 @@ Changes made:
 #include <eigen3/Eigen/Core>
 #include <eigen3/Eigen/Dense>
 #include <eigen3/Eigen/Geometry>
+
+## Building
+
+Clone the repo
+```shell
+mkdir -p /test_ws/src
+cd /test_ws/src
+git clone https://github.com/marcinmatecki/LeGO-LOAM-to-hdmapping.git --recursive
+cd ..
+catkin_make
+```
+
+## Usage - data SLAM:
+
+Prepare recorded bag with estimated odometry:
+
+In first terminal record bag:
+```shell
+rosbag record /registered_cloud /aft_mapped_to_init
+```
+
+and start odometry:
+```shell 
+cd /test_ws/
+source ./devel/setup.sh # adjust to used shell
+roslaunch lego_loam run.launch
+rosbag play *.bag --clock --topic /velodyne_points /imu/data
+```
+
+## Usage - conversion:
+
+```shell
+cd /test_ws/
+source ./devel/setup.sh # adjust to used shell
+rosrun lego-loam-to-hdmapping listener <recorded_bag> <output_dir>
+```
+
